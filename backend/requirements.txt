@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+openai
+javalang
+python-dotenv
+pydantic
+google-generativeai
+groq
+sqlalchemy
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart
