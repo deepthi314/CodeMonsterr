@@ -9,7 +9,8 @@ SECRET_KEY = os.getenv("JWT_SECRET", "8e9a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24 # 24 hours
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+# Use pbkdf2_sha256 to avoid bcrypt's 72-byte limit and passlib initialization bugs
+pwd_context = CryptContext(schemes=["pbkdf2_sha256", "bcrypt"], deprecated="auto")
 
 def verify_password(plain_password, hashed_password):
     return pwd_context.verify(plain_password, hashed_password)

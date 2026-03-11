@@ -26,7 +26,7 @@ try:
 except ImportError:
     GROQ_AVAILABLE = False
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field, EmailStr
 import models, database, auth
 from database import engine, get_db
 from sqlalchemy.orm import Session
@@ -69,10 +69,11 @@ class Token(BaseModel):
     access_token: str
     token_type: str
 
+
 class UserCreate(BaseModel):
-    username: str
-    email: str
-    password: str
+    username: str = Field(..., min_length=3, max_length=50)
+    email: EmailStr
+    password: str = Field(..., min_length=8, max_length=128)
 
 class UserResponse(BaseModel):
     id: int
