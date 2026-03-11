@@ -4,6 +4,7 @@
 .env.development.local
 .env.test.local
 .env.production.local
+*.env*
 
 # Python
 __pycache__/
@@ -27,12 +28,20 @@ wheels/
 .installed.cfg
 *.egg
 MANIFEST
+.pytest_cache/
+.coverage
+htmlcov/
+nosetests.xml
+coverage.xml
+*.cover
+*.pyo
 
 # Virtual environments
 venv/
 .venv/
 env/
 ENV/
+virtualenv/
 
 # Database
 *.db
@@ -45,6 +54,9 @@ ENV/
 *.swp
 *.swo
 *~
+.project
+.pydevproject
+.settings/
 
 # OS
 .DS_Store
@@ -54,6 +66,7 @@ ENV/
 .Trashes
 ehthumbs.db
 Thumbs.db
+desktop.ini
 
 # Node.js
 node_modules/
@@ -61,14 +74,19 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+.npm/
+.eslintcache
 
 # Frontend build
 frontend/dist/
 frontend/build/
+dist/
+out/
 
 # Logs
 *.log
 logs/
+*.log.*
 
 # Runtime data
 pids
@@ -76,7 +94,7 @@ pids
 *.seed
 *.pid.lock
 
-# Coverage directory used by tools like istanbul
+# Coverage directory
 coverage/
 
 # API Keys and secrets
@@ -84,11 +102,15 @@ coverage/
 *.pem
 *.p12
 *.crt
+credentials.json
+client_secret.json
 
 # Local configuration files
 config.local.js
 config.local.json
+local_settings.py
 
 # Temporary files
 tmp/
 temp/
+.cache/
